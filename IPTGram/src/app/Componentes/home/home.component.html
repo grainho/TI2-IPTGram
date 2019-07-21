@@ -12,11 +12,21 @@
       </form>
       <div class="card">
         <div class="card-body">
-          yay
+        
           <div *ngFor="let item of _framesShowing" >
-            id: {{item.id}}
-           <!-- <imagem-comp> {{item.id}}</imagem-comp>
-            <comentarios-comp>  {{item.id}}         </comentarios-comp>-->
+            <table>
+                <tr>
+                    <td>
+                        <img src="https://ipt-ti2-iptgram.azurewebsites.net/api/posts/{{item.id}}/image"  > 
+                    </td>
+                    <td>
+                        <app-comentarios [argum]="1"></app-comentarios>
+                    </td>
+                </tr>
+                <tr>
+                    <p>{{item.caption}}</p>
+                </tr>
+            </table>
             {{item.caption}}
           </div>
         </div>
