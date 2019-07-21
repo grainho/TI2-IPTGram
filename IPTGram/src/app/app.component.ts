@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AutenticacaoService } from './servicos/autenticacao.service';
 
@@ -7,7 +7,7 @@ import { AutenticacaoService } from './servicos/autenticacao.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
 
   public _user:string;
@@ -16,4 +16,8 @@ export class AppComponent {
   }
 
   title = 'IPTGram';
+
+  ngOnInit() {
+    // this._user=this.auth.user_full_name;
+  }
 }

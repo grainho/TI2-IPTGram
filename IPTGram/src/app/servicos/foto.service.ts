@@ -15,12 +15,12 @@ export interface FotoList {
   comments: number;
 }
 
-export interface Comentarios{
+export interface Comentarios {
   id: number;
   text: string;
   postedAt: Date,
   user: any;
-  post:any;
+  post: any;
 }
 
 @Injectable({
@@ -61,18 +61,19 @@ export class FotoService {
 
   }
 
-  public getComentarios(comentario): Observable<Comentarios[]> {    
-    return this.http.get(FotoService.POSTS_LINK+comentario+"/comments")
+  public getComentarios(comentario): Observable<Comentarios[]> {
+    return this.http.get(FotoService.POSTS_LINK + comentario + "/comments")
       .pipe(
         map((data: any) => {
           let comment: Comentarios[];
           if (!data.errors) {
             comment = data;
-          } 
-          console.log (comment);
+          }
+          console.log(comment);
           return comment;
         })
       );
-  }	  }
+  }
 }
+
 

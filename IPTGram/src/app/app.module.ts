@@ -11,7 +11,8 @@ import { ComentariosComponent } from './comentarios/comentarios/comentarios.comp
   declarations: [
     AppComponent,
     HomeComponent,    
-    LoginComponent, ComentariosComponent
+    LoginComponent, 
+    ComentariosComponent
   ],
   imports: [
     BrowserModule,

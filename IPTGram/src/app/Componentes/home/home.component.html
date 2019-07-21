@@ -1,33 +1,40 @@
 <div class="card">
     <div class="card-body">
-  
-       <form (submit)="search($event)">
-        <div >
-          <input type="text" name="searchBox" placeholder="Pesquisar por" value="{{_procurar}}"
-            aria-label="Pesquisar por">
-          <div >
-            <button class="btn btn-outline-primary" type="submit"> Pesquisar</button>
-          </div>
+
+        <form (submit)="search($event)">
+            <div>
+                <input type="text" name="searchBox" placeholder="Pesquisar por" value="{{_procurar}}"
+                    aria-label="Pesquisar por">
+                <div>
+                    <button class="btn btn-outline-primary" type="submit"> Pesquisar</button>
+                </div>
+            </div>
+        </form>
+        <div class="card">
+            <div class="card-body">
+
+                <div *ngFor="let item of _mostrarFotos">
+                    <div *ngIf="item.id==_procurar else apenasImagem">
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="https://ipt-ti2-iptgram.azurewebsites.net/api/posts/{{item.id}}/image">
+                                </td>
+                                <td>
+                                    <app-comentarios [argum]="item.id"></app-comentarios>
+                                </td>
+                            </tr>
+                            <tr>
+                                <p>{{item.caption}}</p>
+                            </tr>
+                        </table>
+                    </div>
+                    <ng-template #apenasImagem>
+                        <div (click)="toogle(item.id)">
+                            <img src="https://ipt-ti2-iptgram.azurewebsites.net/api/posts/{{item.id}}/image"
+                                style="width:30%;flex: auto ;"> </div>
+                    </ng-template>
+                </div>                
+            </div>
         </div>
-      </form>
-      <div class="card">
-        <div class="card-body">
-        
-          <div *ngFor="let item of _framesShowing" >
-            <table>
-                <tr>
-                    <td>
-                        <img src="https://ipt-ti2-iptgram.azurewebsites.net/api/posts/{{item.id}}/image"  > 
-                    </td>
-                    <td>
-                        <app-comentarios [argum]="1"></app-comentarios>
-                    </td>
-                </tr>
-                <tr>
-                    <p>{{item.caption}}</p>
-                </tr>
-            </table>
-            {{item.caption}}
-          </div>
-        </div>
-      </div>
+    </div>

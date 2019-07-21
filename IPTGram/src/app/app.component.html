@@ -3,8 +3,9 @@
 
   <a *ngIf="!autenticar.estaAutenticado() else logoutbt" routerLink="/login">Login </a>
   <ng-template #logoutbt>
-    <a href="#" routerLink="/user/details"> Ola {{_user}}</a>
+    <a href="#" routerLink="/user/details"> Ola {{autenticar.user_full_name}}</a>
     <a href="#" (click)="autenticar.forcaLogout()">Logout</a>
+    
     
 
   </ng-template>
@@ -12,6 +13,6 @@
 </nav>
 
 <div class="container mainContainer">
-
-  <router-outlet></router-outlet>
   <app-home></app-home>
+  <router-outlet></router-outlet>
+</div>
