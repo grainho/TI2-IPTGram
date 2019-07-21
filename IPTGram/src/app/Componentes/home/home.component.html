@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-body">
+  
+       <form (submit)="search($event)">
+        <div >
+          <input type="text" name="searchBox" placeholder="Pesquisar por" value="{{_procurar}}"
+            aria-label="Pesquisar por">
+          <div >
+            <button class="btn btn-outline-primary" type="submit"> Pesquisar</button>
+          </div>
+        </div>
+      </form>
+      <div class="card">
+        <div class="card-body">
+          yay
+          <div *ngFor="let item of _framesShowing" >
+            id: {{item.id}}
+           <!-- <imagem-comp> {{item.id}}</imagem-comp>
+            <comentarios-comp>  {{item.id}}         </comentarios-comp>-->
+            {{item.caption}}
+          </div>
+        </div>
+      </div>
